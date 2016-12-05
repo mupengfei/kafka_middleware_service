@@ -29,7 +29,7 @@ public class MessageController {
 	@Autowired
 	private ProducerPool producerPool;
 
-	@RequestMapping(value = { "/send/{topic}" })
+	@RequestMapping(value = { "/send/{topic}" }, method = RequestMethod.POST)
 	public String sendMsg(@PathVariable String topic,
 			@RequestParam String service, @RequestParam String msg,
 			HttpServletRequest request) {
@@ -42,7 +42,7 @@ public class MessageController {
 			Future<RecordMetadata> future = producerPool.borrowObject().send(
 					new ProducerRecord<String, String>("kps", NetUtils
 							.getIpAddr(request), msg));
-//			System.out.println(future.get().toString());
+			// System.out.println(future.get().toString());
 			future.get();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -57,8 +57,9 @@ public class MessageController {
 		return topic;
 	}
 
-	@RequestMapping(value = "/get/{topic}", method = RequestMethod.GET)
-	public List<Message> getAllMessage(@PathVariable String topic) {
+	@RequestMapping(value = "/show/{topic}", method = RequestMethod.GET)
+	public List<Message> showAllMessage(@PathVariable String topic) {
 		return messageDAO.findByTopic(topic);
 	}
+
 }

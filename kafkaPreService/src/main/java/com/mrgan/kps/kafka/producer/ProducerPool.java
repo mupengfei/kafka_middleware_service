@@ -32,12 +32,12 @@ public class ProducerPool extends GenericObjectPool<Producer<String, String>> {
 		return (Producer<String, String>) super.borrowObject();
 	}
 
-	public Producer<String, String> borroProducer(long borrowMaxWaitMillis)
-			throws Exception {
-		// TODO Auto-generated method stub
-		Producer<String, String> producer = super
-				.borrowObject(borrowMaxWaitMillis);
-		return producer;
-	}
+//	public Producer<String, String> borroProducer(long borrowMaxWaitMillis)
+//			throws Exception {
+//		// TODO Auto-generated method stub
+//		Producer<String, String> producer = super
+//				.borrowObject(borrowMaxWaitMillis);
+//		return producer;
+//	}
 
 }
