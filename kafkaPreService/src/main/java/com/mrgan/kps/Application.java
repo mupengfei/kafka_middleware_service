@@ -16,8 +16,7 @@ import com.mrgan.kps.kafka.producer.ProducerPool;
 
 @SpringBootApplication
 public class Application implements EmbeddedServletContainerCustomizer {
-	private static Logger logger = LogManager.getLogger(Application.class
-			.getName());
+	private static Logger logger = LogManager.getLogger(Application.class.getName());
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class);
@@ -26,12 +25,6 @@ public class Application implements EmbeddedServletContainerCustomizer {
 	public void customize(ConfigurableEmbeddedServletContainer container) {
 		container.setPort(2046);
 	}
-
-	// @Bean
-	// public ProducerPool generateProducerPool(
-	// @Qualifier("producerFactory") ProducerFactory producerFactory) {
-	// return new ProducerPool(producerFactory);
-	// }
 
 	@Bean
 	public GenericObjectPoolConfig genericObjectPoolConfig() {

@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Message {
+public class NotInsertKafkaMessage {
 	@Id
 	private String id;
 	private String topic;

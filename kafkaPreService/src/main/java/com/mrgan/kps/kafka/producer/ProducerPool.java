@@ -11,33 +11,13 @@ import org.springframework.stereotype.Service;
 public class ProducerPool extends GenericObjectPool<Producer<String, String>> {
 
 	@Autowired
-	public ProducerPool(
-			@Qualifier("producerFactory") ProducerFactory producerFactory,
-			GenericObjectPoolConfig config) {
+	public ProducerPool(@Qualifier("producerFactory") ProducerFactory producerFactory, GenericObjectPoolConfig config) {
 		super(producerFactory, config);
-		// TODO Auto-generated constructor stub
 	}
-
-	// @Autowired
-	// public ProducerPool(
-	// @Qualifier("producerFactory") ProducerFactory producerFactory,
-	// GenericObjectPoolConfig config, AbandonedConfig abandonedConfig) {
-	// super(producerFactory, config, abandonedConfig);
-	// // TODO Auto-generated constructor stub
-	// }
 
 	@Override
 	public Producer<String, String> borrowObject() throws Exception {
-		// TODO Auto-generated method stub
 		return (Producer<String, String>) super.borrowObject();
 	}
-
-//	public Producer<String, String> borroProducer(long borrowMaxWaitMillis)
-//			throws Exception {
-//		// TODO Auto-generated method stub
-//		Producer<String, String> producer = super
-//				.borrowObject(borrowMaxWaitMillis);
-//		return producer;
-//	}
 
 }
